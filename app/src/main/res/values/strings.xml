@@ -1,0 +1,5 @@
+<resources>
+    <string name="app_name">Einkaufswagen</string>
+    <string name="action_settings">Einstellungen</string>
+    <string name="action_exit">App beenden</string>
+</resources>
