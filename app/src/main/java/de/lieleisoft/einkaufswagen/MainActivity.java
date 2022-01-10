@@ -112,10 +112,9 @@ public class MainActivity extends AppCompatActivity {
     public void btnImportCSV()
     {
         Intent intent = new Intent();
-        intent.setType("*/*");
+        intent.setType("text/comma-separated-values");
         intent.setAction(Intent.ACTION_OPEN_DOCUMENT);
         intent.addCategory(Intent.CATEGORY_OPENABLE);
-
         try {
             startActivityForResult(Intent.createChooser(intent, "Select a file"), FILE_SELECT_CODE);
         } catch (Exception ex) {
@@ -134,7 +133,7 @@ public class MainActivity extends AppCompatActivity {
         try {
             while ((line = reader.readLine()) != null) {
                 // Split the line into different tokens (using the comma as a separator).
-                String[] tokens = line.split(":"); // Trennzeichen = Doppelpunkt (als Beispiel)
+                String[] tokens = line.split(";"); // Trennzeichen = Semikolon (als Beispiel)
 
                 //Log.d(TAG, "Inhalt: "+line);
                 for (int i = 0; i < tokens.length; i++) {
