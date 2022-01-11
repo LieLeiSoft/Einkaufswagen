@@ -10,6 +10,7 @@ import android.provider.OpenableColumns;
 import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.widget.TextView;
 
 import de.lieleisoft.einkaufswagen.databinding.ActivityMainBinding;
 
@@ -95,14 +96,13 @@ public class MainActivity extends AppCompatActivity {
 
                 readData(returnUri, this);
 
+                TextView tvDateiname    = (TextView) findViewById(R.id.tvDateiname);
+                TextView tvDateigroesse = (TextView) findViewById(R.id.tvDateigroesse);
+                tvDateiname.setText(returnCursor.getString(nameIndex));
+                tvDateigroesse.setText(Long.toString(returnCursor.getLong(sizeIndex)));
+
                 returnCursor.close();
 
-                /*
-                TextView nameView = (TextView) findViewById(R.id.filename_text);
-                TextView sizeView = (TextView) findViewById(R.id.filesize_text);
-                nameView.setText(returnCursor.getString(nameIndex));
-                sizeView.setText(Long.toString(returnCursor.getLong(sizeIndex)));
-                */
             } catch (Exception ex) {
                 Log.e(TAG, "onActivityResult: "+ex.toString());
             }
